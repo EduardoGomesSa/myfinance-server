@@ -18,7 +18,7 @@ return new class extends Migration
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
             $table->integer('value');
-            $table->integer('remainder');
+            $table->integer('remainder')->default(0);
             $table->timestamps();
         });
     }
