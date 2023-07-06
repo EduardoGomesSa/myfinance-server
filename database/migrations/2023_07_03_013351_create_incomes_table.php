@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onDelete('CASCADE')
+                ->onUpdate('CASCADE');
+            $table->integer('value');
+            $table->integer('remainder');
             $table->timestamps();
         });
     }
