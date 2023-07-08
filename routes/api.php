@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/incomes', [IncomeController::class, 'store']);
+Route::get('/incomes', [IncomeController::class, 'index']);
+Route::delete('/incomes/{id}', [IncomeController::class, 'destroy']);
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();

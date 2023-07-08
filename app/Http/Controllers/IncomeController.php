@@ -16,11 +16,29 @@ class IncomeController extends Controller
         $this->income = $income;
     }
 
+    public function index(){
+        return IncomeResource::collection(
+            $this->income->all()
+        );
+    }
+
     public function store(IncomeRequest $request){
         $income = $this->income->create($request->all());
 
         $resource = new IncomeResource($income);
 
         return $resource->response()->setStatusCode(201);
+    }
+
+    public function destroy($id){
+        $income = $this->income->find($id);
+
+        if($income){
+            $income->delete();
+
+            return response(['message'=>'income deleted with sucess'], 200);
+        }
+
+        return response(['error'=>'income not found'], 404);
     }
 }
