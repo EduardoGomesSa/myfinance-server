@@ -22,7 +22,8 @@ class IncomeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'value'=>'required|min:1',
+            //'value'=>['required', 'numeric', 'min:1'],
+            'value'=>'required|numeric|min:1',
             'user_id'=>'required',
         ];
     }

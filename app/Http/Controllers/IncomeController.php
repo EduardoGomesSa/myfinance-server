@@ -30,6 +30,22 @@ class IncomeController extends Controller
         return $resource->response()->setStatusCode(201);
     }
 
+    public function update(IncomeRequest $request, $id){
+        $income = $this->income->find($id);
+
+        if($income){
+            $incomeUpdated = $income->update($request->all());
+
+            if($incomeUpdated){
+                return response(['message'=>"income updated with success"], 200);
+            }
+
+            return response(['error'=>'error while attempting to update'], 401);
+        }
+
+        return response(['error'=>'income not found'], 401);
+    }
+
     public function destroy($id){
         $income = $this->income->find($id);
 
