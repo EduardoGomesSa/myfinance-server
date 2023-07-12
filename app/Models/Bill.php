@@ -9,6 +9,8 @@ class Bill extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     public function expenses(){
         $this->hasMany(Expense::class);
     }
