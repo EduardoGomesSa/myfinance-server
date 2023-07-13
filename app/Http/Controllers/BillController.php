@@ -40,4 +40,16 @@ class BillController extends Controller
 
                 return $resource->response()->setStatusCode(200);
     }
+
+    public function update($id, BillRequest $request){
+        $billExist = $this->bill->find($id);
+
+        if($billExist){
+            $billExist->update($request->all());
+
+            return response(['message'=>'bill updated with success'])->setStatusCode(201);
+        }
+
+        return response(['error'=>'bill not found'])->setStatusCode(404);
+    }
 }
