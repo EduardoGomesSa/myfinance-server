@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BillRequest;
 use App\Http\Resources\BillResource;
 use App\Models\Bill;
-use Illuminate\Http\Request;
 
 class BillController extends Controller
 {
@@ -19,5 +19,25 @@ class BillController extends Controller
         return BillResource::collection(
             $this->bill->all()
         );
+    }
+
+    public function store(BillRequest $request){
+        $billExist = $this->bill->where('name', $request->name)->first();
+
+        if($billExist==null){
+            $bill = $this->bill->create($request->all());
+
+            if($bill){
+                $resource = new BillResource($bill);
+
+                return $resource->response()->setStatusCode(201);
+            }
+
+            return response(['error'=>'bill wasn´t created'])->setStatusCode(401);
+        }
+
+        $resource = new BillResource($billExist);
+
+                return $resource->response()->setStatusCode(200);
     }
 }

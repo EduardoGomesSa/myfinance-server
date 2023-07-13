@@ -14,6 +14,7 @@ Route::delete('/incomes/{id}', [IncomeController::class, 'destroy']);
 Route::put('/incomes/{id}', [IncomeController::class, 'update']);
 
 Route::get('/bills', [BillController::class, 'index']);
+Route::post('/bills', [BillController::class, 'store']);
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
