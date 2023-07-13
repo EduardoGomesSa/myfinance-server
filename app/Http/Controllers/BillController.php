@@ -52,4 +52,16 @@ class BillController extends Controller
 
         return response(['error'=>'bill not found'])->setStatusCode(404);
     }
+
+    public function destroy($id){
+        $billExist = $this->bill->find($id);
+
+        if($billExist){
+            $billExist->delete();
+
+            return response(['message'=>'bill deleted with success'])->setStatusCode(200);
+        }
+
+        return response(['error'=>'bill not found'])->setStatusCode(404);
+    }
 }
