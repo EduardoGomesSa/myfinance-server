@@ -9,6 +9,12 @@ class Expense extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'value',
+        'income_id',
+        'bill_id'
+    ];
+
     public function income(){
         $this->hasOne(Income::class);
     }
