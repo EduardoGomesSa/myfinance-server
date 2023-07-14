@@ -45,4 +45,16 @@ class ExpenseController extends Controller
 
         return response(['message'=>'expense not fount'])->setStatusCode(404);
     }
+
+    public function destroy($id){
+        $expenseExist = $this->expense->find($id);
+
+        if($expenseExist){
+            $expenseExist->delete();
+
+            return response(['message'=>'expense deleted with success'])->setStatusCode(200);
+        }
+
+        return response(['message'=>'expense not fount'])->setStatusCode(404);
+    }
 }
