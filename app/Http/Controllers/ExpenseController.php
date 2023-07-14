@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ExpenseRequest;
 use App\Http\Resources\ExpenseResource;
 use App\Models\Expense;
+use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
@@ -18,5 +20,21 @@ class ExpenseController extends Controller
         return ExpenseResource::collection(
             $this->expense->all()
         );
+    }
+
+    public function store(ExpenseRequest $request){
+        $expense = $this->expense->create($request->all());
+
+        $resource = new ExpenseResource($expense);
+
+        return $resource->response()->setStatusCode(201);
+
+        // if($expense != null){
+        //     $resource = new ExpenseResource($expense);
+
+        //     return $resource->response()->setStatusCode(201);
+        // }
+
+        // return response(['error'=>'expense wasn´t created'])->setStatusCode(401);
     }
 }

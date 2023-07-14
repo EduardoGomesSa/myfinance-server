@@ -20,6 +20,7 @@ Route::put('/bills/{id}', [BillController::class, 'update']);
 Route::delete('/bills/{id}', [BillController::class, 'destroy']);
 
 Route::get('/expenses', [ExpenseController::class, 'index']);
+Route::post('/expenses', [ExpenseController::class, 'store']);
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
