@@ -25,16 +25,12 @@ class ExpenseController extends Controller
     public function store(ExpenseRequest $request){
         $expense = $this->expense->create($request->all());
 
-        $resource = new ExpenseResource($expense);
+        if($expense){
+            $resource = new ExpenseResource($expense);
 
-        return $resource->response()->setStatusCode(201);
+            return $resource->response()->setStatusCode(201);
+        }
 
-        // if($expense != null){
-        //     $resource = new ExpenseResource($expense);
-
-        //     return $resource->response()->setStatusCode(201);
-        // }
-
-        // return response(['error'=>'expense wasn´t created'])->setStatusCode(401);
+        return response(['error'=>'expense wasn´t created'])->setStatusCode(401);
     }
 }
