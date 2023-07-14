@@ -33,4 +33,16 @@ class ExpenseController extends Controller
 
         return response(['error'=>'expense wasn´t created'])->setStatusCode(401);
     }
+
+    public function update($id, ExpenseRequest $request){
+        $expenseExist = $this->expense->find($id);
+
+        if($expenseExist){
+            $expenseExist->update($request->all());
+
+            return response(['message'=>'expense updated with success'])->setStatusCode(200);
+        }
+
+        return response(['message'=>'expense not fount'])->setStatusCode(404);
+    }
 }
