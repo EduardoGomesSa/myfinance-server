@@ -19,6 +19,7 @@ class IncomeResource extends JsonResource
             'value'=>$this->value,
             'created'=>$this->created_at,
             'remained'=>$this->remained,
+            'created_at' => $this->created_at,
         ];
     }
 }
