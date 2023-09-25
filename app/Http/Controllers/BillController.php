@@ -38,7 +38,7 @@ class BillController extends Controller
 
         $resource = new BillResource($billExist);
 
-                return $resource->response()->setStatusCode(200);
+        return $resource->response()->setStatusCode(200);
     }
 
     public function update($id, BillRequest $request){

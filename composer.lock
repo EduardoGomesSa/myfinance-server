@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c6848a6846695daa93bb9a68fb9fa3e",
+    "content-hash": "dd7780f52c5a077fab0b2cb261555b82",
     "packages": [
         {
             "name": "brick/math",
@@ -2841,16 +2841,16 @@
         },
         {
             "name": "rakutentech/laravel-request-docs",
-            "version": "v2.19",
+            "version": "v2.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rakutentech/laravel-request-docs.git",
-                "reference": "2d60cd99917110f5af25d008a45b0aeea0f8a73c"
+                "reference": "3449b5eb89c175fe1237a0b75808c3bbcc44d292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rakutentech/laravel-request-docs/zipball/2d60cd99917110f5af25d008a45b0aeea0f8a73c",
-                "reference": "2d60cd99917110f5af25d008a45b0aeea0f8a73c",
+                "url": "https://api.github.com/repos/rakutentech/laravel-request-docs/zipball/3449b5eb89c175fe1237a0b75808c3bbcc44d292",
+                "reference": "3449b5eb89c175fe1237a0b75808c3bbcc44d292",
                 "shasum": ""
             },
             "require": {
@@ -2908,9 +2908,9 @@
             ],
             "support": {
                 "issues": "https://github.com/rakutentech/laravel-request-docs/issues",
-                "source": "https://github.com/rakutentech/laravel-request-docs/tree/v2.19"
+                "source": "https://github.com/rakutentech/laravel-request-docs/tree/v2.22"
             },
-            "time": "2023-06-22T12:17:48+00:00"
+            "time": "2023-08-09T02:09:25+00:00"
         },
         {
             "name": "ralouphie/getallheaders",

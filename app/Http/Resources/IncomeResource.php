@@ -17,7 +17,6 @@ class IncomeResource extends JsonResource
         return [
             'id'=>$this->id,
             'value'=>$this->value,
-            'created'=>$this->created_at,
             'remained'=>$this->remained,
             'created_at' => $this->created_at,
         ];

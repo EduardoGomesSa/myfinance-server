@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ExpenseRequest;
 use App\Http\Resources\ExpenseResource;
 use App\Models\Expense;
-use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
@@ -31,7 +30,7 @@ class ExpenseController extends Controller
             return $resource->response()->setStatusCode(201);
         }
 
-        return response(['error'=>'expense wasn´t created'])->setStatusCode(401);
+        return response(['error'=>'expense wasn´t created'], 401);
     }
 
     public function update($id, ExpenseRequest $request){
@@ -40,10 +39,10 @@ class ExpenseController extends Controller
         if($expenseExist){
             $expenseExist->update($request->all());
 
-            return response(['message'=>'expense updated with success'])->setStatusCode(200);
+            return response(['message'=>'expense updated with success'], 200);
         }
 
-        return response(['message'=>'expense not fount'])->setStatusCode(404);
+        return response(['message'=>'expense not fount'], 404);
     }
 
     public function destroy($id){
@@ -52,9 +51,9 @@ class ExpenseController extends Controller
         if($expenseExist){
             $expenseExist->delete();
 
-            return response(['message'=>'expense deleted with success'])->setStatusCode(200);
+            return response(['message'=>'expense deleted with success'], 200);
         }
 
-        return response(['message'=>'expense not fount'])->setStatusCode(404);
+        return response(['error'=>'expense not fount'], 404);
     }
 }
