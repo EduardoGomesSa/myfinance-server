@@ -18,7 +18,7 @@ class IncomeController extends Controller
 
     public function index(){
         return IncomeResource::collection(
-            $this->income->all()
+            $this->income->all()->sortDesc()
         );
     }
 
