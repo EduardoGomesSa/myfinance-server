@@ -25,6 +25,7 @@ class IncomeRequest extends FormRequest
             //'value'=>['required', 'numeric', 'min:1'],
             'value'=>'required|numeric|min:1',
             'user_id'=>'required',
+            'title'=>'required|string'
         ];
     }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
                 ->constrained('users')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
+            $table->string('title');
             $table->integer('value');
             $table->integer('remainder')->default(0);
             $table->timestamps();

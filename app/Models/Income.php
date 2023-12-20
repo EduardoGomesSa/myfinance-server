@@ -10,6 +10,7 @@ class Income extends Model
     use HasFactory;
 
     protected $fillable = [
+        'title',
         'value',
         'user_id',
     ];
