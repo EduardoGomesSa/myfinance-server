@@ -20,6 +20,7 @@ class IncomeResource extends JsonResource
             'value'=>$this->value,
             'created'=>$this->created_at,
             'remained'=>$this->remained,
+            'expenses'=>ExpenseResource::collection($this->expenses)
         ];
     }
 }

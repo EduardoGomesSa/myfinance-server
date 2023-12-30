@@ -16,10 +16,10 @@ class Income extends Model
     ];
 
     public function user(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function expenses(){
-        $this->hasMany(Expense::class);
+        return $this->hasMany(Expense::class);
     }
 }
