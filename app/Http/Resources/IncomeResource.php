@@ -19,8 +19,18 @@ class IncomeResource extends JsonResource
             'title'=>$this->title,
             'value'=>$this->value,
             'created'=>$this->created_at,
-            'remained'=>$this->remained,
+            'remained'=>$this->restExpense($this->expenses, $this->value),
             'expenses'=>ExpenseResource::collection($this->expenses)
         ];
+    }
+
+    private function restExpense($expenses, $value){
+        $expenseRest = $value;
+
+        foreach($this->expenses as $expense){
+            $expenseRest -= $expense->value;
+        }
+
+        return $expenseRest;
     }
 }
