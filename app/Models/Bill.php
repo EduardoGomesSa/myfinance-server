@@ -12,6 +12,6 @@ class Bill extends Model
     protected $fillable = ['name'];
 
     public function expenses(){
-        $this->hasMany(Expense::class);
+        return $this->hasMany(Expense::class);
     }
 }

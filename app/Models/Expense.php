@@ -16,10 +16,10 @@ class Expense extends Model
     ];
 
     public function income(){
-        $this->hasOne(Income::class);
+        return $this->belongsTo(Income::class);
     }
 
     public function bill(){
-        $this->hasOne(Bill::class);
+        return $this->belongsTo(Bill::class);
     }
 }
